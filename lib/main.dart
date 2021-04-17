@@ -1,7 +1,9 @@
 //import 'dart:html';
 import 'dart:convert';
+import 'package:easa/Bedroom.dart';
 import 'package:easa/HomePage.dart';
 import 'package:easa/LivingRoom.dart';
+import 'package:easa/Property_Info.dart';
 import 'package:easa/RegPage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
@@ -209,7 +211,7 @@ class _LoginPageState extends State<LoginPage>
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => livingRoom()))
+                                        builder: (context) => BedRoom()))
                               },
                             ),
                           ],

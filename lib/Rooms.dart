@@ -1,4 +1,9 @@
+import 'package:easa/Bathroom.dart';
+import 'package:easa/Bedroom.dart';
+import 'package:easa/Exterior.dart';
 import 'package:easa/HomePage.dart';
+import 'package:easa/Kitchen.dart';
+import 'package:easa/LivingRoom.dart';
 
 import 'package:easa/PropertiesPage.dart';
 import 'package:flutter/material.dart';
@@ -93,32 +98,44 @@ class _RoomsState extends State<Rooms> {
               textColor: Colors.white,
               onPressed: () => {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Rooms()))
+                        MaterialPageRoute(builder: (context) => livingRoom()))
                   }),
           Padding(padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 20.0)),
           RaisedButton(
               child: Text("Generate a Sheet for Bedroom"),
               color: Colors.teal,
               textColor: Colors.white,
-              onPressed: () => {}),
+              onPressed: () => {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BedRoom()))
+                  }),
           Padding(padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 20.0)),
           RaisedButton(
               child: Text("Generate a Sheet for Bathroom"),
               color: Colors.teal,
               textColor: Colors.white,
-              onPressed: () => {}),
+              onPressed: () => {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Bathroom()))
+                  }),
           Padding(padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 20.0)),
           RaisedButton(
               child: Text("Generate a Sheet for Kitchen"),
               color: Colors.teal,
               textColor: Colors.white,
-              onPressed: () => {}),
+              onPressed: () => {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Kitchen()))
+                  }),
           Padding(padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 20.0)),
           RaisedButton(
               child: Text("Generate a Sheet for Exterior"),
               color: Colors.teal,
               textColor: Colors.white,
-              onPressed: () => {}),
+              onPressed: () => {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Exterior()))
+                  }),
         ],
       ),
     );

@@ -11,12 +11,12 @@ import 'package:validation_extensions/validation_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class livingRoom3 extends StatefulWidget {
+class Bedroom3 extends StatefulWidget {
   @override
-  _livingRoom3State createState() => _livingRoom3State();
+  _Bedroom3State createState() => _Bedroom3State();
 }
 
-class _livingRoom3State extends State<livingRoom3> {
+class _Bedroom3State extends State<Bedroom3> {
   // TextField Controllers
   TextEditingController question10 = TextEditingController();
   TextEditingController question11 = TextEditingController();
@@ -44,7 +44,7 @@ class _livingRoom3State extends State<livingRoom3> {
 
   void sendInfo() async {
     Uri url = Uri.parse(
-        'https://muni2021.000webhostapp.com/login_flutter/LivingRoom.php');
+        'https://muni2021.000webhostapp.com/login_flutter/Bedroom.php');
     var data = {
       "question10": question10.text,
       "question11": question11.text,
@@ -64,7 +64,7 @@ class _livingRoom3State extends State<livingRoom3> {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(title: Text("Living Room Sheet")),
+        appBar: AppBar(title: Text("Bedroom Sheet")),
         body: Center(
           child: SingleChildScrollView(
             child: Container(

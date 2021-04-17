@@ -1,5 +1,6 @@
 import 'package:easa/HomePage.dart';
 import 'package:easa/PropertyRegistration.dart';
+import 'package:easa/Property_Info.dart';
 import 'package:flutter/material.dart';
 //import 'dart:html';
 import 'package:http/http.dart' as http;
@@ -77,10 +78,14 @@ class _propertiesState extends State<properties> {
                   }),
           Padding(padding: EdgeInsets.fromLTRB(700.0, 20.0, 0.0, 20.0)),
           RaisedButton(
-              child: Text("Show Properties Data"),
-              color: Colors.teal,
-              textColor: Colors.white,
-              onPressed: () => {}),
+            child: Text("Show Properties Data"),
+            color: Colors.teal,
+            textColor: Colors.white,
+            onPressed: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Property_Info()))
+            },
+          ),
           Padding(padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 20.0)),
         ],
       ),

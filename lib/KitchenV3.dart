@@ -11,12 +11,12 @@ import 'package:validation_extensions/validation_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class livingRoom3 extends StatefulWidget {
+class Kitchen3 extends StatefulWidget {
   @override
-  _livingRoom3State createState() => _livingRoom3State();
+  _Kitchen3State createState() => _Kitchen3State();
 }
 
-class _livingRoom3State extends State<livingRoom3> {
+class _Kitchen3State extends State<Kitchen3> {
   // TextField Controllers
   TextEditingController question10 = TextEditingController();
   TextEditingController question11 = TextEditingController();
@@ -44,7 +44,7 @@ class _livingRoom3State extends State<livingRoom3> {
 
   void sendInfo() async {
     Uri url = Uri.parse(
-        'https://muni2021.000webhostapp.com/login_flutter/LivingRoom.php');
+        'https://muni2021.000webhostapp.com/login_flutter/Kitchen.php');
     var data = {
       "question10": question10.text,
       "question11": question11.text,
@@ -64,7 +64,7 @@ class _livingRoom3State extends State<livingRoom3> {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(title: Text("Living Room Sheet")),
+        appBar: AppBar(title: Text("Kitchen Sheet")),
         body: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -75,7 +75,7 @@ class _livingRoom3State extends State<livingRoom3> {
                 children: <Widget>[
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10)),
                   Text(
-                    "Ask owner to show you the windows in the room",
+                    "Ask owner to show you the windows",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
@@ -96,7 +96,7 @@ class _livingRoom3State extends State<livingRoom3> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask owner to show you interior and exterior envelope",
+                    "Ask owner to show you if the door going out is open",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
@@ -116,7 +116,7 @@ class _livingRoom3State extends State<livingRoom3> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask owner to show you all electrical devices in the room",
+                    "Ask owner to show you all electrical devices",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
