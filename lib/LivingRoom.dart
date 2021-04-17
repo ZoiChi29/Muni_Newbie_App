@@ -17,10 +17,63 @@ class livingRoom extends StatefulWidget {
 }
 
 class _livingRoomState extends State<livingRoom> {
+  // TextField Controllers
+  TextEditingController question1 = TextEditingController();
+  TextEditingController question2 = TextEditingController();
+  TextEditingController question3 = TextEditingController();
+  TextEditingController question4 = TextEditingController();
+  TextEditingController question5 = TextEditingController();
+
+//the keys
+  final _formKey1 = GlobalKey<FormState>();
+  final _formKey2 = GlobalKey<FormState>();
+  final _formKey3 = GlobalKey<FormState>();
+  final _formKey4 = GlobalKey<FormState>();
+  final _formKey5 = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+//entered values, might not need them
+  String q1;
+  String q2;
+  String q3;
+  String q4;
+  String q5;
+
+//from here we are setting the online DB.
+  @override
+  void initState() {
+    super.initState();
+    question1 = new TextEditingController();
+    question2 = new TextEditingController();
+    question3 = new TextEditingController();
+    question4 = new TextEditingController();
+    question5 = new TextEditingController();
+  }
+
+  void sendInfo() async {
+    Uri url = Uri.parse(
+        'https://muni2021.000webhostapp.com/login_flutter/LivingRoom.php');
+    var data = {
+      "question1": question1.text,
+      "question2": question2.text,
+      "question3": question3.text,
+      "question4": question4.text,
+      "question5": question5.text,
+    };
+
+    var res = await http.post(url, body: data);
+
+    if (jsonDecode(res.body) == "true") {
+    } else {
+      Fluttertoast.showToast(msg: "Error", toastLength: Toast.LENGTH_SHORT);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: _scaffoldKey,
         appBar: AppBar(title: Text("Living Room Sheet")),
         body: Center(
           child: SingleChildScrollView(
@@ -37,15 +90,14 @@ class _livingRoomState extends State<livingRoom> {
                       fontSize: 16,
                     ),
                   ),
-                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    //controller: question1,
+                    key: _formKey1,
+                    controller: question1,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
                       border: OutlineInputBorder(
                           borderSide: BorderSide(
-
                               //color: Colors.blue,
                               )),
                     ),
@@ -58,9 +110,10 @@ class _livingRoomState extends State<livingRoom> {
                       fontSize: 16,
                     ),
                   ),
-                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
+
                   TextFormField(
-                    //controller: question1,
+                    key: _formKey2,
+                    controller: question2,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -80,7 +133,8 @@ class _livingRoomState extends State<livingRoom> {
                   ),
                   //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    //controller: question1,
+                    key: _formKey3,
+                    controller: question3,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -100,7 +154,8 @@ class _livingRoomState extends State<livingRoom> {
                   ),
                   //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    //controller: question1,
+                    key: _formKey4,
+                    controller: question4,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -120,7 +175,8 @@ class _livingRoomState extends State<livingRoom> {
                   ),
                   //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    //controller: question1,
+                    key: _formKey5,
+                    controller: question5,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -141,6 +197,7 @@ class _livingRoomState extends State<livingRoom> {
                         ),
                         color: Colors.blue,
                         onPressed: () {
+                          sendInfo();
                           Navigator.push(
                               context,
                               MaterialPageRoute(

@@ -17,10 +17,58 @@ class livingRoom2 extends StatefulWidget {
 }
 
 class _livingRoom2State extends State<livingRoom2> {
+  // TextField Controllers
+  TextEditingController question6 = TextEditingController();
+  TextEditingController question7 = TextEditingController();
+  TextEditingController question8 = TextEditingController();
+  TextEditingController question9 = TextEditingController();
+
+//the keys
+  final _formKey6 = GlobalKey<FormState>();
+  final _formKey7 = GlobalKey<FormState>();
+  final _formKey8 = GlobalKey<FormState>();
+  final _formKey9 = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+//entered values, might not need them
+  String q6;
+  String q7;
+  String q8;
+  String q9;
+
+//from here we are setting the online DB.
+  @override
+  void initState() {
+    super.initState();
+    question6 = new TextEditingController();
+    question7 = new TextEditingController();
+    question8 = new TextEditingController();
+    question9 = new TextEditingController();
+  }
+
+  void sendInfo() async {
+    Uri url = Uri.parse(
+        'https://muni2021.000webhostapp.com/login_flutter/LivingRoom.php');
+    var data = {
+      "question6": question6.text,
+      "question7": question7.text,
+      "question8": question8.text,
+      "question9": question9.text,
+    };
+
+    var res = await http.post(url, body: data);
+
+    if (jsonDecode(res.body) == "true") {
+    } else {
+      Fluttertoast.showToast(msg: "Error", toastLength: Toast.LENGTH_SHORT);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: _scaffoldKey,
         appBar: AppBar(title: Text("Living Room Sheet")),
         body: Center(
           child: SingleChildScrollView(
@@ -37,9 +85,9 @@ class _livingRoom2State extends State<livingRoom2> {
                       fontSize: 16,
                     ),
                   ),
-                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    //controller: question1,
+                    key: _formKey6,
+                    controller: question6,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -58,9 +106,9 @@ class _livingRoom2State extends State<livingRoom2> {
                       fontSize: 16,
                     ),
                   ),
-                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    //controller: question1,
+                    key: _formKey7,
+                    controller: question7,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -78,9 +126,9 @@ class _livingRoom2State extends State<livingRoom2> {
                       fontSize: 16,
                     ),
                   ),
-                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    //controller: question1,
+                    key: _formKey8,
+                    controller: question8,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -98,9 +146,9 @@ class _livingRoom2State extends State<livingRoom2> {
                       fontSize: 16,
                     ),
                   ),
-                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    //controller: question1,
+                    key: _formKey9,
+                    controller: question9,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -111,7 +159,6 @@ class _livingRoom2State extends State<livingRoom2> {
                     ),
                     keyboardType: TextInputType.text,
                   ),
-
                   Padding(
                     padding: EdgeInsets.fromLTRB(250, 100, 0, 0),
                     child: RaisedButton(
@@ -121,6 +168,7 @@ class _livingRoom2State extends State<livingRoom2> {
                         ),
                         color: Colors.blue,
                         onPressed: () {
+                          sendInfo();
                           Navigator.push(
                               context,
                               MaterialPageRoute(

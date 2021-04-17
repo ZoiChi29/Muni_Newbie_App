@@ -52,7 +52,8 @@ class _RegPageState extends State<RegPage> {
   }
 
   void registerUser() async {
-    Uri url = Uri.parse('https://muni2021.000webhostapp.com/login_flutter/regpage.php');
+    Uri url = Uri.parse(
+        'https://muni2021.000webhostapp.com/login_flutter/regpage.php');
     var data = {
       "eid": emiratesidController.text,
       "firstname": firstnameController.text,
