@@ -199,21 +199,6 @@ class _LoginPageState extends State<LoginPage>
                                         builder: (context) => RegPage()))
                               },
                             ),
-                            new Padding(
-                                padding: const EdgeInsets.only(top: 20)),
-                            //NOW WE WILL ADD THE LINK TO THE REGISTRATION PAGE HERE
-                            new MaterialButton(
-                              minWidth: 200.0,
-                              child: Text("LivingRoom"),
-                              color: Colors.teal,
-                              textColor: Colors.white,
-                              onPressed: () => {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => BedRoom()))
-                              },
-                            ),
                           ],
                         ),
                       ),
