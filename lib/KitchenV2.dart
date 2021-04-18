@@ -62,7 +62,7 @@ class _Kitchen2State extends State<Kitchen2> {
 
     if (jsonDecode(res.body) == "true") {
     } else {
-      Fluttertoast.showToast(msg: "Error", toastLength: Toast.LENGTH_SHORT);
+      //Fluttertoast.showToast(msg: "Error", toastLength: Toast.LENGTH_SHORT);
     }
   }
 

@@ -62,7 +62,7 @@ class _BathroomState extends State<Bathroom> {
 
     if (jsonDecode(res.body) == "true") {
     } else {
-      Fluttertoast.showToast(msg: "Error", toastLength: Toast.LENGTH_SHORT);
+      //Fluttertoast.showToast(msg: "Error", toastLength: Toast.LENGTH_SHORT);
     }
   }
 

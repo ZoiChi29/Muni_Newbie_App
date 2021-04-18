@@ -62,7 +62,7 @@ class _Exterior2State extends State<Exterior2> {
 
     if (jsonDecode(res.body) == "true") {
     } else {
-      Fluttertoast.showToast(msg: "Error", toastLength: Toast.LENGTH_SHORT);
+      //Fluttertoast.showToast(msg: "Error", toastLength: Toast.LENGTH_SHORT);
     }
   }
 
