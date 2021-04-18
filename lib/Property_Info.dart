@@ -31,7 +31,6 @@ class _Property_InfoState extends State<Property_Info> {
 
           children: [
             MLMenuItem(
-                
                 leading: Icon(Icons.home),
                 content: Text("Home"),
                 onClick: () {
@@ -39,7 +38,6 @@ class _Property_InfoState extends State<Property_Info> {
                       MaterialPageRoute(builder: (context) => Property_Info()));
                 }),
             MLMenuItem(
-             
                 leading: Icon(Icons.vpn_key),
                 content: Text("Properties"),
                 onClick: () {
@@ -47,7 +45,6 @@ class _Property_InfoState extends State<Property_Info> {
                       MaterialPageRoute(builder: (context) => properties()));
                 }),
             MLMenuItem(
-                
                 leading: Icon(Icons.text_snippet_outlined),
                 content: Text("Reports"),
                 onClick: () {
@@ -55,7 +52,6 @@ class _Property_InfoState extends State<Property_Info> {
                       MaterialPageRoute(builder: (context) => Property_Info()));
                 }),
             MLMenuItem(
-                
                 leading: Icon(Icons.power_settings_new),
                 content: Text("Log out"),
                 onClick: () {
@@ -65,7 +61,7 @@ class _Property_InfoState extends State<Property_Info> {
           ]),
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Home Page"),
+        title: Text("Properties"),
       ),
       body: PropertyList(),
     );

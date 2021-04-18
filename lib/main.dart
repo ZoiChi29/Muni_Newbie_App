@@ -1,3 +1,8 @@
+//This is the VERY 1ST page. where i have the login page. and the intro to registration page via the button registar.
+// we have the button login here as well.. in case the info are correct. the user will move to the next page which is HomePage.dart
+//the order of the pages : Main, HomePgae: User_Info,PropertiesPage,Then Rooms. inside rooms you have the living room with the three versions + bedrooms...etc.
+
+
 //import 'dart:html';
 import 'dart:convert';
 import 'package:easa/Bedroom.dart';
@@ -12,12 +17,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_session/flutter_session.dart';
 
+//here we the app starts. the next fun is responsble for the app turning on. just leave it.. its a default thingy
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   //dynamic token = FlutterSession().get("token");
   runApp(MyApp());
 }
-
+//this class is for the app name and deciding the home page of the app. ya3ni when it opens... what page it will open 1st.
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -45,10 +51,12 @@ class _LoginPageState extends State<LoginPage>
 
   GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
+//all text editing controllers are responsble for communicating with the DB via the php we have in PHPMYADMIN. 
+//you will find them used down there in the forms when requesting inputs from the user
   TextEditingController emailctrl = TextEditingController();
   TextEditingController passwordctrl = TextEditingController();
 
-  //Navigation FUNCTION
+  //Animation FUNCTION. was trying some fancy sh1t.. by making the icon animate when u open the app. not important tho.
 
   @override
   void initState() {
@@ -64,7 +72,7 @@ class _LoginPageState extends State<LoginPage>
     iconAnimationController.forward();
   }
 // TILL HERE...
-//next the login fun
+//next the login fun. where we send the info inside the controllers to the PHP file we have in phpmyadmin
 
   Future userSignIn() async {
     Uri url =
@@ -126,14 +134,14 @@ class _LoginPageState extends State<LoginPage>
                 //mainAxisAlignment: MainAxisAlignment.center, // WE CHANGED IT TO
                 children: <Widget>[
                   new FlutterLogo(
-                    // we are using here the defult flutter icon.. can be changed
-                    //HERE WE APPLY THE VALUE FROM 0 TO 1. THEN MULTY IN 100. 0.8*100 FOR EXAMPLE
+                    // we are using here the default flutter icon.. can be changed
+                    //HERE WE APPLY THE VALUE FROM 0 TO 1. THEN MULTY by 100. 0.8*100 FOR EXAMPLE
                     size: iconAnimation.value * 70,
                   ),
                   //HERE WE WILL ADD ANOTHER COLOM TO BE ABLE TO HAVE MULTI TEXT FIELDS UNDER EACH OTHER.
                   //SO, in the form we have coulmn, in the colom we have many childern.
                   new Form(
-                    key: _formkey,
+                    key: _formkey, //keys are very important for the controllers it seems. so we will have them in each form when we need inputs from the user
                     //HERE WE ADDED THEME TO MAKE THE TEXT A LIL BIT BRIGHTER
                     child: Theme(
                       data: new ThemeData(
