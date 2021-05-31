@@ -2,14 +2,13 @@
 // we have the button login here as well.. in case the info are correct. the user will move to the next page which is HomePage.dart
 //the order of the pages : Main, HomePgae: User_Info,PropertiesPage,Then Rooms. inside rooms you have the living room with the three versions + bedrooms...etc.
 
-
 //import 'dart:html';
 import 'dart:convert';
-import 'package:easa/Bedroom.dart';
+import 'package:easa/Rooms/Bedroom.dart';
 import 'package:easa/HomePage.dart';
-import 'package:easa/LivingRoom.dart';
+import 'package:easa/Rooms/LivingRoom.dart';
 import 'package:easa/Property_Info.dart';
-import 'package:easa/RegPage.dart';
+import 'package:easa/Uers_Pages/RegPage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:form_field_validator/form_field_validator.dart';
@@ -23,6 +22,7 @@ void main() {
   //dynamic token = FlutterSession().get("token");
   runApp(MyApp());
 }
+
 //this class is for the app name and deciding the home page of the app. ya3ni when it opens... what page it will open 1st.
 class MyApp extends StatelessWidget {
   @override
@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage>
 
   GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-//all text editing controllers are responsble for communicating with the DB via the php we have in PHPMYADMIN. 
+//all text editing controllers are responsble for communicating with the DB via the php we have in PHPMYADMIN.
 //you will find them used down there in the forms when requesting inputs from the user
   TextEditingController emailctrl = TextEditingController();
   TextEditingController passwordctrl = TextEditingController();
@@ -141,7 +141,8 @@ class _LoginPageState extends State<LoginPage>
                   //HERE WE WILL ADD ANOTHER COLOM TO BE ABLE TO HAVE MULTI TEXT FIELDS UNDER EACH OTHER.
                   //SO, in the form we have coulmn, in the colom we have many childern.
                   new Form(
-                    key: _formkey, //keys are very important for the controllers it seems. so we will have them in each form when we need inputs from the user
+                    key:
+                        _formkey, //keys are very important for the controllers it seems. so we will have them in each form when we need inputs from the user
                     //HERE WE ADDED THEME TO MAKE THE TEXT A LIL BIT BRIGHTER
                     child: Theme(
                       data: new ThemeData(
@@ -204,7 +205,7 @@ class _LoginPageState extends State<LoginPage>
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => RegPage()))
+                                        builder: (context) => livingRoom()))
                               },
                             ),
                           ],

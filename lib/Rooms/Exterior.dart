@@ -1,4 +1,4 @@
-import 'package:easa/LivingRoomV2.dart';
+import 'package:easa/Rooms/ExteriorV2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,25 +11,23 @@ import 'package:validation_extensions/validation_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class livingRoom extends StatefulWidget {
+class Exterior extends StatefulWidget {
   @override
-  _livingRoomState createState() => _livingRoomState();
+  _ExteriorState createState() => _ExteriorState();
 }
 
-class _livingRoomState extends State<livingRoom> {
+class _ExteriorState extends State<Exterior> {
   // TextField Controllers
   TextEditingController question1 = TextEditingController();
   TextEditingController question2 = TextEditingController();
   TextEditingController question3 = TextEditingController();
   TextEditingController question4 = TextEditingController();
-  TextEditingController question5 = TextEditingController();
 
 //the keys
   final _formKey1 = GlobalKey<FormState>();
   final _formKey2 = GlobalKey<FormState>();
   final _formKey3 = GlobalKey<FormState>();
   final _formKey4 = GlobalKey<FormState>();
-  final _formKey5 = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
 //entered values, might not need them
@@ -37,7 +35,6 @@ class _livingRoomState extends State<livingRoom> {
   String q2;
   String q3;
   String q4;
-  String q5;
 
 //from here we are setting the online DB.
   @override
@@ -47,18 +44,16 @@ class _livingRoomState extends State<livingRoom> {
     question2 = new TextEditingController();
     question3 = new TextEditingController();
     question4 = new TextEditingController();
-    question5 = new TextEditingController();
   }
 
   void sendInfo() async {
     Uri url = Uri.parse(
-        'https://muni2021.000webhostapp.com/login_flutter/LivingRoom.php');
+        'https://muni2021.000webhostapp.com/login_flutter/Exterior.php');
     var data = {
       "question1": question1.text,
       "question2": question2.text,
       "question3": question3.text,
       "question4": question4.text,
-      "question5": question5.text,
     };
 
     var res = await http.post(url, body: data);
@@ -74,7 +69,7 @@ class _livingRoomState extends State<livingRoom> {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(title: Text("Living Room Sheet")),
+        appBar: AppBar(title: Text("Exterior Sheet")),
         body: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -85,7 +80,7 @@ class _livingRoomState extends State<livingRoom> {
                 children: <Widget>[
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10)),
                   Text(
-                    "Ask Owner to show you AC in the room",
+                    "Ask Owner to show you outdoor AC units",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
@@ -98,6 +93,7 @@ class _livingRoomState extends State<livingRoom> {
                       enabledBorder: OutlineInputBorder(),
                       border: OutlineInputBorder(
                           borderSide: BorderSide(
+
                               //color: Colors.blue,
                               )),
                     ),
@@ -105,12 +101,11 @@ class _livingRoomState extends State<livingRoom> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask owner to show you AC label",
+                    "Ask Owner to show you lighting fixtures",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
                   ),
-
                   TextFormField(
                     key: _formKey2,
                     controller: question2,
@@ -126,35 +121,13 @@ class _livingRoomState extends State<livingRoom> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask owner to zoom in to the AC grills",
+                    "Ask owner if they have information regarding the light fixtures wattage",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
                   ),
-                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
                     key: _formKey3,
-                    controller: question3,
-                    decoration: InputDecoration(
-                      labelText: "Observation",
-                      enabledBorder: OutlineInputBorder(),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              //color: Colors.blue,
-                              )),
-                    ),
-                    keyboardType: TextInputType.text,
-                  ),
-                  Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
-                  Text(
-                    "Ask Owner to show you AC controller",
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                    ),
-                  ),
-                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
-                  TextFormField(
-                    key: _formKey4,
                     controller: question4,
                     decoration: InputDecoration(
                       labelText: "Observation",
@@ -168,15 +141,14 @@ class _livingRoomState extends State<livingRoom> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask Owner to show you fans and portable AC units in the room",
+                    "Ask owner if they have information regarding the light fixtures wattage",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
                   ),
-                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    key: _formKey5,
-                    controller: question5,
+                    key: _formKey4,
+                    controller: question4,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -187,9 +159,8 @@ class _livingRoomState extends State<livingRoom> {
                     ),
                     keyboardType: TextInputType.text,
                   ),
-
                   Padding(
-                    padding: EdgeInsets.fromLTRB(250, 50, 0, 0),
+                    padding: EdgeInsets.fromLTRB(250, 100, 0, 0),
                     child: RaisedButton(
                         child: Text(
                           "Next Page",
@@ -201,7 +172,7 @@ class _livingRoomState extends State<livingRoom> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => livingRoom2()));
+                                  builder: (context) => Exterior2()));
                         }),
                   ),
                 ],

@@ -1,5 +1,4 @@
-import 'package:easa/BedroomV3.dart';
-import 'package:easa/LivingRoomV3.dart';
+import 'package:easa/Rooms/BedroomV2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,49 +11,54 @@ import 'package:validation_extensions/validation_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class BedRoom2 extends StatefulWidget {
+class BedRoom extends StatefulWidget {
   @override
-  _BedRoom2State createState() => _BedRoom2State();
+  _BedRoomState createState() => _BedRoomState();
 }
 
-class _BedRoom2State extends State<BedRoom2> {
+class _BedRoomState extends State<BedRoom> {
   // TextField Controllers
-  TextEditingController question6 = TextEditingController();
-  TextEditingController question7 = TextEditingController();
-  TextEditingController question8 = TextEditingController();
-  TextEditingController question9 = TextEditingController();
+  TextEditingController question1 = TextEditingController();
+  TextEditingController question2 = TextEditingController();
+  TextEditingController question3 = TextEditingController();
+  TextEditingController question4 = TextEditingController();
+  TextEditingController question5 = TextEditingController();
 
 //the keys
-  final _formKey6 = GlobalKey<FormState>();
-  final _formKey7 = GlobalKey<FormState>();
-  final _formKey8 = GlobalKey<FormState>();
-  final _formKey9 = GlobalKey<FormState>();
+  final _formKey1 = GlobalKey<FormState>();
+  final _formKey2 = GlobalKey<FormState>();
+  final _formKey3 = GlobalKey<FormState>();
+  final _formKey4 = GlobalKey<FormState>();
+  final _formKey5 = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
 //entered values, might not need them
-  String q6;
-  String q7;
-  String q8;
-  String q9;
+  String q1;
+  String q2;
+  String q3;
+  String q4;
+  String q5;
 
 //from here we are setting the online DB.
   @override
   void initState() {
     super.initState();
-    question6 = new TextEditingController();
-    question7 = new TextEditingController();
-    question8 = new TextEditingController();
-    question9 = new TextEditingController();
+    question1 = new TextEditingController();
+    question2 = new TextEditingController();
+    question3 = new TextEditingController();
+    question4 = new TextEditingController();
+    question5 = new TextEditingController();
   }
 
   void sendInfo() async {
     Uri url = Uri.parse(
         'https://muni2021.000webhostapp.com/login_flutter/Bedroom.php');
     var data = {
-      "question6": question6.text,
-      "question7": question7.text,
-      "question8": question8.text,
-      "question9": question9.text,
+      "question1": question1.text,
+      "question2": question2.text,
+      "question3": question3.text,
+      "question4": question4.text,
+      "question5": question5.text,
     };
 
     var res = await http.post(url, body: data);
@@ -81,35 +85,35 @@ class _BedRoom2State extends State<BedRoom2> {
                 children: <Widget>[
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10)),
                   Text(
-                    "Ask Owner to show you lighting fixtures in the room",
+                    "Ask Owner to show you AC in the room",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
                   ),
                   TextFormField(
-                    key: _formKey6,
-                    controller: question6,
+                    key: _formKey1,
+                    controller: question1,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
                       border: OutlineInputBorder(
                           borderSide: BorderSide(
+                              //color: Colors.blue,
+                              )),
+                    ),
+                    keyboardType: TextInputType.text,
+                  ),
+                  Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
+                  Text(
+                    "Ask owner to show you AC label",
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                    ),
+                  ),
 
-                              //color: Colors.blue,
-                              )),
-                    ),
-                    keyboardType: TextInputType.text,
-                  ),
-                  Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
-                  Text(
-                    "Ask owner if they have information regarding the light fixtures wattage in the room",
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                    ),
-                  ),
                   TextFormField(
-                    key: _formKey7,
-                    controller: question7,
+                    key: _formKey2,
+                    controller: question2,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -122,14 +126,15 @@ class _BedRoom2State extends State<BedRoom2> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask owner to show you windows and blinds in the room",
+                    "Ask owner to zoom in to the AC grills",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
                   ),
+                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    key: _formKey8,
-                    controller: question8,
+                    key: _formKey3,
+                    controller: question3,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -142,14 +147,15 @@ class _BedRoom2State extends State<BedRoom2> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask owner if there are any sensors installed",
+                    "Ask Owner to show you AC controller",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
                   ),
+                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    key: _formKey9,
-                    controller: question9,
+                    key: _formKey4,
+                    controller: question4,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -160,8 +166,30 @@ class _BedRoom2State extends State<BedRoom2> {
                     ),
                     keyboardType: TextInputType.text,
                   ),
+                  Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
+                  Text(
+                    "Ask Owner to show you fans and portable AC units in the room",
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                    ),
+                  ),
+                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
+                  TextFormField(
+                    key: _formKey5,
+                    controller: question5,
+                    decoration: InputDecoration(
+                      labelText: "Observation",
+                      enabledBorder: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              //color: Colors.blue,
+                              )),
+                    ),
+                    keyboardType: TextInputType.text,
+                  ),
+
                   Padding(
-                    padding: EdgeInsets.fromLTRB(250, 100, 0, 0),
+                    padding: EdgeInsets.fromLTRB(250, 50, 0, 0),
                     child: RaisedButton(
                         child: Text(
                           "Next Page",
@@ -173,7 +201,7 @@ class _BedRoom2State extends State<BedRoom2> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Bedroom3()));
+                                  builder: (context) => BedRoom2()));
                         }),
                   ),
                 ],

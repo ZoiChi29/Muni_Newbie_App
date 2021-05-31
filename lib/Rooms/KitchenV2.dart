@@ -1,4 +1,6 @@
-import 'package:easa/LivingRoomV3.dart';
+import 'package:easa/Rooms/BedroomV3.dart';
+import 'package:easa/Rooms/KitchenV3.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,12 +13,12 @@ import 'package:validation_extensions/validation_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class livingRoom2 extends StatefulWidget {
+class Kitchen2 extends StatefulWidget {
   @override
-  _livingRoom2State createState() => _livingRoom2State();
+  _Kitchen2State createState() => _Kitchen2State();
 }
 
-class _livingRoom2State extends State<livingRoom2> {
+class _Kitchen2State extends State<Kitchen2> {
   // TextField Controllers
   TextEditingController question6 = TextEditingController();
   TextEditingController question7 = TextEditingController();
@@ -48,7 +50,7 @@ class _livingRoom2State extends State<livingRoom2> {
 
   void sendInfo() async {
     Uri url = Uri.parse(
-        'https://muni2021.000webhostapp.com/login_flutter/LivingRoom.php');
+        'https://muni2021.000webhostapp.com/login_flutter/Kitchen.php');
     var data = {
       "question6": question6.text,
       "question7": question7.text,
@@ -69,7 +71,7 @@ class _livingRoom2State extends State<livingRoom2> {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(title: Text("Living Room Sheet")),
+        appBar: AppBar(title: Text("Kitchen Sheet")),
         body: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -80,7 +82,7 @@ class _livingRoom2State extends State<livingRoom2> {
                 children: <Widget>[
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10)),
                   Text(
-                    "Ask Owner to show you lighting fixtures in the room",
+                    "Ask owner if they have information regarding the light fixtures wattage",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
@@ -101,7 +103,7 @@ class _livingRoom2State extends State<livingRoom2> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask owner if they have information regarding the light fixtures wattage in the room",
+                    "Ask owner to show you windows and blinds",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
@@ -121,7 +123,7 @@ class _livingRoom2State extends State<livingRoom2> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask owner to show you windows and blinds in the room",
+                    "Ask owner if there are any sensors installed",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
@@ -141,7 +143,7 @@ class _livingRoom2State extends State<livingRoom2> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask owner if there are any sensors installed",
+                    "Ask owner to show you water flow devices",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
@@ -172,7 +174,7 @@ class _livingRoom2State extends State<livingRoom2> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => livingRoom3()));
+                                  builder: (context) => Kitchen3()));
                         }),
                   ),
                 ],

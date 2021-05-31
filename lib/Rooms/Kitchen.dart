@@ -1,4 +1,4 @@
-import 'package:easa/Rooms.dart';
+import 'package:easa/Rooms/KitchenV2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,44 +11,54 @@ import 'package:validation_extensions/validation_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class livingRoom3 extends StatefulWidget {
+class Kitchen extends StatefulWidget {
   @override
-  _livingRoom3State createState() => _livingRoom3State();
+  _KitchenState createState() => _KitchenState();
 }
 
-class _livingRoom3State extends State<livingRoom3> {
+class _KitchenState extends State<Kitchen> {
   // TextField Controllers
-  TextEditingController question10 = TextEditingController();
-  TextEditingController question11 = TextEditingController();
-  TextEditingController question12 = TextEditingController();
+  TextEditingController question1 = TextEditingController();
+  TextEditingController question2 = TextEditingController();
+  TextEditingController question3 = TextEditingController();
+  TextEditingController question4 = TextEditingController();
+  TextEditingController question5 = TextEditingController();
 
 //the keys
-  final _formKey10 = GlobalKey<FormState>();
-  final _formKey11 = GlobalKey<FormState>();
-  final _formKey12 = GlobalKey<FormState>();
+  final _formKey1 = GlobalKey<FormState>();
+  final _formKey2 = GlobalKey<FormState>();
+  final _formKey3 = GlobalKey<FormState>();
+  final _formKey4 = GlobalKey<FormState>();
+  final _formKey5 = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
 //entered values, might not need them
-  String q10;
-  String q11;
-  String q12;
+  String q1;
+  String q2;
+  String q3;
+  String q4;
+  String q5;
 
 //from here we are setting the online DB.
   @override
   void initState() {
     super.initState();
-    question10 = new TextEditingController();
-    question11 = new TextEditingController();
-    question12 = new TextEditingController();
+    question1 = new TextEditingController();
+    question2 = new TextEditingController();
+    question3 = new TextEditingController();
+    question4 = new TextEditingController();
+    question5 = new TextEditingController();
   }
 
   void sendInfo() async {
     Uri url = Uri.parse(
-        'https://muni2021.000webhostapp.com/login_flutter/LivingRoom.php');
+        'https://muni2021.000webhostapp.com/login_flutter/Kitchen.php');
     var data = {
-      "question10": question10.text,
-      "question11": question11.text,
-      "question12": question12.text,
+      "question1": question1.text,
+      "question2": question2.text,
+      "question3": question3.text,
+      "question4": question4.text,
+      "question5": question5.text,
     };
 
     var res = await http.post(url, body: data);
@@ -64,7 +74,7 @@ class _livingRoom3State extends State<livingRoom3> {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(title: Text("Living Room Sheet")),
+        appBar: AppBar(title: Text("Kitchen Sheet")),
         body: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -75,35 +85,35 @@ class _livingRoom3State extends State<livingRoom3> {
                 children: <Widget>[
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10)),
                   Text(
-                    "Ask owner to show you the windows in the room",
+                    "Ask Owner to show you the AC",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
                   ),
                   TextFormField(
-                    key: _formKey10,
-                    controller: question10,
+                    key: _formKey1,
+                    controller: question1,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
                       border: OutlineInputBorder(
                           borderSide: BorderSide(
+                              //color: Colors.blue,
+                              )),
+                    ),
+                    keyboardType: TextInputType.text,
+                  ),
+                  Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
+                  Text(
+                    "Ask owner to show you AC label",
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                    ),
+                  ),
 
-                              //color: Colors.blue,
-                              )),
-                    ),
-                    keyboardType: TextInputType.text,
-                  ),
-                  Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
-                  Text(
-                    "Ask owner to show you interior and exterior envelope",
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                    ),
-                  ),
                   TextFormField(
-                    key: _formKey11,
-                    controller: question11,
+                    key: _formKey2,
+                    controller: question2,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -116,14 +126,15 @@ class _livingRoom3State extends State<livingRoom3> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask owner to show you all electrical devices in the room",
+                    "Ask owner to zoom in to the AC grills",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
                   ),
+                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
                   TextFormField(
-                    key: _formKey12,
-                    controller: question12,
+                    key: _formKey3,
+                    controller: question3,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -134,18 +145,63 @@ class _livingRoom3State extends State<livingRoom3> {
                     ),
                     keyboardType: TextInputType.text,
                   ),
+                  Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
+                  Text(
+                    "Ask Owner to show you fans and portable AC units",
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                    ),
+                  ),
+                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
+                  TextFormField(
+                    key: _formKey4,
+                    controller: question4,
+                    decoration: InputDecoration(
+                      labelText: "Observation",
+                      enabledBorder: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              //color: Colors.blue,
+                              )),
+                    ),
+                    keyboardType: TextInputType.text,
+                  ),
+                  Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
+                  Text(
+                    "Ask Owner to show you lighting fixtures",
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                    ),
+                  ),
+                  //padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
+                  TextFormField(
+                    key: _formKey5,
+                    controller: question5,
+                    decoration: InputDecoration(
+                      labelText: "Observation",
+                      enabledBorder: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              //color: Colors.blue,
+                              )),
+                    ),
+                    keyboardType: TextInputType.text,
+                  ),
+
                   Padding(
-                    padding: EdgeInsets.fromLTRB(120, 200, 0, 0),
+                    padding: EdgeInsets.fromLTRB(250, 50, 0, 0),
                     child: RaisedButton(
                         child: Text(
-                          "Submit Sheet",
+                          "Next Page",
                           style: TextStyle(color: Colors.white),
                         ),
                         color: Colors.blue,
                         onPressed: () {
                           sendInfo();
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Rooms()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Kitchen2()));
                         }),
                   ),
                 ],

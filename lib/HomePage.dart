@@ -4,7 +4,7 @@
 //import 'dart:html';
 import 'package:easa/PropertiesPage.dart';
 import 'package:easa/PropertyRegistration.dart';
-import 'package:easa/Users_Info.dart';
+import 'package:easa/Uers_Pages/Users_Info.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';

@@ -1,5 +1,5 @@
-import 'package:easa/ExteriorV2.dart';
-import 'package:easa/LivingRoomV3.dart';
+import 'package:easa/Rooms/BathroomV2.dart';
+import 'package:easa/Rooms/BedroomV3.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,12 +12,12 @@ import 'package:validation_extensions/validation_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Exterior extends StatefulWidget {
+class Bathroom extends StatefulWidget {
   @override
-  _ExteriorState createState() => _ExteriorState();
+  _BathroomState createState() => _BathroomState();
 }
 
-class _ExteriorState extends State<Exterior> {
+class _BathroomState extends State<Bathroom> {
   // TextField Controllers
   TextEditingController question1 = TextEditingController();
   TextEditingController question2 = TextEditingController();
@@ -49,7 +49,7 @@ class _ExteriorState extends State<Exterior> {
 
   void sendInfo() async {
     Uri url = Uri.parse(
-        'https://muni2021.000webhostapp.com/login_flutter/Exterior.php');
+        'https://muni2021.000webhostapp.com/login_flutter/Bathroom.php');
     var data = {
       "question1": question1.text,
       "question2": question2.text,
@@ -70,7 +70,7 @@ class _ExteriorState extends State<Exterior> {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(title: Text("Exterior Sheet")),
+        appBar: AppBar(title: Text("Bathroom Sheet")),
         body: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -81,7 +81,7 @@ class _ExteriorState extends State<Exterior> {
                 children: <Widget>[
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10)),
                   Text(
-                    "Ask Owner to show you outdoor AC units",
+                    "Ask Owner to show you exhaust fans and portable AC units",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
@@ -129,7 +129,7 @@ class _ExteriorState extends State<Exterior> {
                   ),
                   TextFormField(
                     key: _formKey3,
-                    controller: question4,
+                    controller: question3,
                     decoration: InputDecoration(
                       labelText: "Observation",
                       enabledBorder: OutlineInputBorder(),
@@ -142,7 +142,7 @@ class _ExteriorState extends State<Exterior> {
                   ),
                   Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                   Text(
-                    "Ask owner if they have information regarding the light fixtures wattage",
+                    "Ask owner if there are any sensors installed",
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                     ),
@@ -173,7 +173,7 @@ class _ExteriorState extends State<Exterior> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Exterior2()));
+                                  builder: (context) => Bathroom2()));
                         }),
                   ),
                 ],

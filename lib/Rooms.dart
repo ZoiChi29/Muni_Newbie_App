@@ -1,9 +1,9 @@
-import 'package:easa/Bathroom.dart';
-import 'package:easa/Bedroom.dart';
-import 'package:easa/Exterior.dart';
+import 'package:easa/Rooms/Bathroom.dart';
+import 'package:easa/Rooms/Bedroom.dart';
+import 'package:easa/Rooms/Exterior.dart';
 import 'package:easa/HomePage.dart';
-import 'package:easa/Kitchen.dart';
-import 'package:easa/LivingRoom.dart';
+import 'package:easa/Rooms/Kitchen.dart';
+import 'package:easa/Rooms/LivingRoom.dart';
 
 import 'package:easa/PropertiesPage.dart';
 import 'package:flutter/material.dart';
